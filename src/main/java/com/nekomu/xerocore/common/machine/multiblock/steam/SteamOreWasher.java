@@ -2,19 +2,17 @@ package com.nekomu.xerocore.common.machine.multiblock.steam;
 
 import com.gregtechceu.gtceu.GTCEu;
 import com.gregtechceu.gtceu.api.capability.recipe.ItemRecipeCapability;
-import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.machine.MultiblockMachineDefinition;
 import com.gregtechceu.gtceu.api.machine.multiblock.PartAbility;
 import com.gregtechceu.gtceu.api.pattern.FactoryBlockPattern;
 import com.gregtechceu.gtceu.api.pattern.Predicates;
 import com.gregtechceu.gtceu.common.data.GTRecipeTypes;
-import com.gregtechceu.gtceu.common.data.models.GTMachineModels;
 import com.gregtechceu.gtceu.common.machine.multiblock.steam.SteamParallelMultiblockMachine;
-import net.minecraft.network.chat.Component;
 
 import static com.gregtechceu.gtceu.api.pattern.Predicates.blocks;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.CASING_BRONZE_BRICKS;
 import static com.gregtechceu.gtceu.common.data.GTBlocks.CASING_BRONZE_PIPE;
+import static com.gregtechceu.gtceu.common.data.models.GTMachineModels.createWorkableCasingMachineModel;
 import static com.nekomu.xerocore.api.registries.XeroRegistries.REGISTRATE;
 
 public class SteamOreWasher {
@@ -40,7 +38,7 @@ public class SteamOreWasher {
                             .or(Predicates.abilities(PartAbility.IMPORT_FLUIDS).setPreviewCount(1))
                             .or(Predicates.abilities(PartAbility.EXPORT_FLUIDS).setPreviewCount(1)))
                     .build())
-            .model(GTMachineModels.createWorkableCasingMachineModel(
+            .model(createWorkableCasingMachineModel(
                     GTCEu.id("block/casings/solid/machine_casing_bronze_plated_bricks"),
                     GTCEu.id("block/machines/ore_washer")))
             .register();

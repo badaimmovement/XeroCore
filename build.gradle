@@ -141,13 +141,16 @@ dependencies {
     // Mixin
     annotationProcessor('org.spongepowered:mixin:0.8.5:processor')
 
-    // JEI, EMI, Jade
+    // JEI EMI JADE...QOL
     modCompileOnly("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
     modCompileOnly("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
     modRuntimeOnly("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
     modRuntimeOnly("dev.emi:emi-forge:${emi_version}+${minecraft_version}")
     modRuntimeOnly("curse.maven:jade-324717:5390389")
     modRuntimeOnly("curse.maven:effortless-building-302113:6330928")
+    modRuntimeOnly("curse.maven:worldedit-225608:4586218")
+    modRuntimeOnly("curse.maven:building-gadgets-298187:6850495")
+
 
     //kubejs
     modRuntimeOnly("curse.maven:probejs-585406:5227399")

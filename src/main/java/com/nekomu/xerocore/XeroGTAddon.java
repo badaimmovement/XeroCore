@@ -3,11 +3,8 @@ package com.nekomu.xerocore;
 import com.gregtechceu.gtceu.api.addon.GTAddon;
 import com.gregtechceu.gtceu.api.addon.IGTAddon;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
-
 import com.nekomu.xerocore.api.registries.XeroRegistries;
 import com.nekomu.xerocore.common.machine.multiblock.modular.Multiblockinit;
-import com.nekomu.xerocore.common.machine.multiblock.steam.LargeAlloySmelter;
-import com.nekomu.xerocore.common.machine.multiblock.steam.SteamForgeHammer;
 import net.minecraft.data.recipes.FinishedRecipe;
 
 import java.util.function.Consumer;
@@ -46,3 +43,4 @@ public class XeroGTAddon implements IGTAddon {
         // CustomElements.init();
     }
 }
+

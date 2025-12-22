@@ -8,10 +8,9 @@ import com.gregtechceu.gtceu.api.machine.MachineDefinition;
 import com.gregtechceu.gtceu.api.recipe.GTRecipeType;
 import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
-
+import com.lowdragmc.lowdraglib.Platform;
+import com.nekomu.xerocore.client.XeroCoreClient;
 import com.nekomu.xerocore.common.machine.multiblock.modular.Multiblockinit;
-import com.nekomu.xerocore.common.machine.multiblock.steam.LargeAlloySmelter;
-import com.nekomu.xerocore.common.machine.multiblock.steam.SteamForgeHammer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
@@ -21,7 +20,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -35,7 +33,9 @@ public class XeroCore {
     public static final Logger LOGGER = LogManager.getLogger();
     public static GTRegistrate EXAMPLE_REGISTRATE = GTRegistrate.create(XeroCore.MOD_ID);
 
-    public XeroCore() {
+    public XeroCore(FMLJavaModLoadingContext context) {
+        var bus = context.getModEventBus();
+
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modEventBus.addListener(this::commonSetup);
@@ -51,6 +51,10 @@ public class XeroCore {
         MinecraftForge.EVENT_BUS.register(this);
 
         REGISTRATE.registerRegistrate();
+
+        if (Platform.isClient()) {
+            XeroCoreClient.init(bus);
+        }
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
