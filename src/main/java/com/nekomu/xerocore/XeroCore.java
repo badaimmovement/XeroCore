@@ -10,6 +10,8 @@ import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
 import com.gregtechceu.gtceu.api.sound.SoundEntry;
 import com.lowdragmc.lowdraglib.Platform;
 import com.nekomu.xerocore.client.XeroCoreClient;
+import com.nekomu.xerocore.common.data.XeroBlocks;
+import com.nekomu.xerocore.common.data.materials.XeroMaterials;
 import com.nekomu.xerocore.common.machine.multiblock.modular.Multiblockinit;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
@@ -36,6 +38,7 @@ public class XeroCore {
     public XeroCore(FMLJavaModLoadingContext context) {
         var bus = context.getModEventBus();
 
+        XeroCore.init();
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modEventBus.addListener(this::commonSetup);
@@ -77,7 +80,7 @@ public class XeroCore {
     }
 
     private void addMaterials(MaterialEvent event) {
-        // CustomMaterials.init();
+        XeroMaterials.register();
     }
 
     private void modifyMaterials(PostMaterialEvent event) {
@@ -95,4 +98,8 @@ public class XeroCore {
     public void registerSounds(GTCEuAPI.RegisterEvent<ResourceLocation, SoundEntry> event) {
         // CustomSounds.init();
     }
+    public static void init() {
+        XeroBlocks.init();
+    }
+
 }

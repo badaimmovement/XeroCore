@@ -1,5 +1,6 @@
 package com.nekomu.xerocore.common.machine.multiblock.modular;
 
+import com.nekomu.xerocore.common.machine.multiblock.electric.*;
 import com.nekomu.xerocore.common.machine.multiblock.steam.*;
 
 public class Multiblockinit {

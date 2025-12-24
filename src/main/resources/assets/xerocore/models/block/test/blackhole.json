@@ -1,0 +1,9 @@
+{
+    "loader": "forge:obj",
+    "model": "xerocore:models/block/test/blackhole.obj",
+    "textures": {
+      "texture0": "xerocore:block/test/blackhole",
+      "particle":"xerocore:block/test/blackhole"
+    },
+    "automatic_culling": false
+  }
